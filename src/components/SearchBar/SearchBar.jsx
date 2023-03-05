@@ -1,31 +1,45 @@
 import { getByQuery } from "components/Service/API";
 import { useEffect, useState } from "react"
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 
 export const SearchBar = () => {
     const location = useLocation()
-    const [search, setSearch] = useState('');
     const [submited, setSubmit] = useState(false);
     const [movies, setMovies] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('query')
+    
+    useEffect(() => {
+        setSubmit(true)
+       
+    }, [])
 
     useEffect(() => {
         if (submited === true) {
-            const getMoviesByQuery = async () => {
-                const searchedMovies = await getByQuery(search)
+            try {
+               const getMoviesByQuery = async () => {
+                const searchedMovies = await getByQuery(query)
                 setMovies(searchedMovies) 
+                 setSubmit(false)
             }
-            getMoviesByQuery()
+         
+            getMoviesByQuery() 
+            } catch (error) {
+                console.log('error');
+            }
+            
         }
-    }, [search, submited])
+    }, [query, submited])
     const handleInputValue = (e) => {
-        setSearch(e.target.value);
+       setSearchParams({ query: e.target.value })
+       
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         setSubmit(true)
     }
-
+   
     return (
         <>
             <form onSubmit={handleSubmit}>

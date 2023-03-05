@@ -1,11 +1,14 @@
 import { MovieCard } from "components/MovieCard/MovieCard"
-import { Link, Outlet, useLocation } from "react-router-dom"
+import { Link, Outlet, useLocation} from "react-router-dom"
 
 export const MovieInfoPage = () => {
     const location = useLocation()
-    console.log(location);
+    
     return (
         <>
+            <Link
+                to={location.state.from}
+            >Go back</Link>
             <MovieCard />
             <Link
             to="cast"

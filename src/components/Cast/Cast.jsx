@@ -1,6 +1,7 @@
 import { getCast } from "components/Service/API";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import css from './Cast.module.css'
 
 export const Cast = () => {
    const [cast, setCast] = useState(null);
@@ -24,10 +25,11 @@ export const Cast = () => {
   
     return (
     <>
-      {cast && <ul >
+      {cast && <ul className={css.list}>
           {cast.map(({ id, profile_path, character, name }) => (
-            <li key={id} >
+            <li className={css.item} key={id} >
               <img
+                className={css.img}
                 src={
                   profile_path
                     ? `https://image.tmdb.org/t/p/w500${profile_path}`
@@ -36,8 +38,8 @@ export const Cast = () => {
                 alt="name"
                 width="100"
               />
-              <p>{character}</p>
-              <p>{name}</p>
+              <p className={css.character}>{character}</p>
+              <p className={css.name}>{name}</p>
             </li>
           ))}
         </ul>
