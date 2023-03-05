@@ -1,4 +1,5 @@
 import { MovieCard } from "components/MovieCard/MovieCard"
+import { Suspense } from "react"
 import { Link, Outlet, useLocation} from "react-router-dom"
 
 export const MovieInfoPage = () => {
@@ -16,7 +17,10 @@ export const MovieInfoPage = () => {
             <Link
                 to='reviews'
                 state={location.state ?? '/'}>Reviews</Link>
-             <Outlet />
+            <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+            
         </>
     )
 }
