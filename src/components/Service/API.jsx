@@ -16,7 +16,7 @@ export const getTrending = async () => {
 
 export const getByQuery = async (query) => {
     try {
-        const promise = await axios.get(`search/keyword?api_key=${MY_KEY}&query=${query}&page=1`)
+        const promise = await axios.get(`search/movie?api_key=${MY_KEY}&query=${query}`)
         return promise.data.results;
     } catch (error) {
        toast('Movies not found') 

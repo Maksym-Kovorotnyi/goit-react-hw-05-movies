@@ -40,7 +40,7 @@ export const SearchBar = () => {
         e.preventDefault()
         setSubmit(true)
     }
-   
+   console.log(movies);
     return (
         <>
             <form
@@ -62,7 +62,7 @@ export const SearchBar = () => {
                         key={movie.id}><Link
                         to={`/movies/${movie.id.toString()}`}
                         state={{ from: location }}
-                    >{movie.name}</Link></li>
+                    >{movie.title}</Link></li>
                 })}
             </ul>
         </>

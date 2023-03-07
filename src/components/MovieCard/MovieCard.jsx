@@ -1,12 +1,12 @@
 import { getMovieFullInfo } from "components/Service/API"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useLocation, useParams } from "react-router-dom"
 import css from './MovieCard.module.css'
 
 export const MovieCard = () => {
     const [movie, setMovie] = useState([])
-    const {movieId} = useParams()
-
+    const { movieId } = useParams()
+     const location = useLocation()
     useEffect(() => {
         const getMovieById = async() => {
             const movie = await getMovieFullInfo(movieId)
@@ -18,6 +18,22 @@ export const MovieCard = () => {
     const { poster_path, title, vote_average, release_date, overview, genres } = movie;
     return (
         <>
+            <Link
+                style={{
+                    textDecoration: 'none',
+                    color: '#4a4a4a',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    padding: '8px 16px',
+                    borderRadius: '4px',
+                    backgroundColor: '#f7f7f7',
+                    boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.1)',
+                    transition: 'all 0.2s ease-in-out',
+                    marginRight: '16px',
+                    marginBottom: '16px',
+  }}
+                to={location.state?.from ?? '/'}
+            >Go back</Link>
             <div className={css.container}>
                 <img
                     className={css.poster}
