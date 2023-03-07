@@ -20,7 +20,7 @@ const MovieInfoPage = () => {
                     marginRight: '16px',
                     marginBottom: '16px',
   }}
-                to={location.state.from ?? '/'}
+                to={location.state?.from ?? '/'}
             >Go back</Link>
             <MovieCard />
             <Link
