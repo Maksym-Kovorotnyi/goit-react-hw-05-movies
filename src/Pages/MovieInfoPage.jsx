@@ -1,5 +1,4 @@
 import { MovieCard } from "components/MovieCard/MovieCard"
-import { Suspense } from "react"
 import { Link, Outlet, useLocation} from "react-router-dom"
 
 const MovieInfoPage = () => {
