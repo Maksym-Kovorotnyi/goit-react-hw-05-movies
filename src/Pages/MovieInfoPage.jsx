@@ -6,7 +6,7 @@ const MovieInfoPage = () => {
     
     return (
         <>
-            {/* <Link
+            <Link
                 style={{
                     textDecoration: 'none',
                     color: '#4a4a4a',
@@ -21,7 +21,7 @@ const MovieInfoPage = () => {
                     marginBottom: '16px',
   }}
                 to={location.state?.from ?? '/'}
-            >Go back</Link> */}
+            >Go back</Link>
             <MovieCard />
             <Link
                 style={{
