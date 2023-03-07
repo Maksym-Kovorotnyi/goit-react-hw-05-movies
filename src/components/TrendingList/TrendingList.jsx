@@ -1,7 +1,7 @@
-
 import { getTrending } from "components/Service/API"
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import css from './TrendingList.module.css'
 
 export const TrendingList = () => {
     const location = useLocation();
@@ -16,9 +16,9 @@ export const TrendingList = () => {
 
     return (
         <>
-            <ul>
+            <ul className={css.list}>
                 {movies.map(movie => {
-                    return <li key={movie.id}><Link
+                    return <li className={css.item} key={movie.id}><Link
                         to={`/movies/${movie.id.toString()}`}
                         state={{ from: location }}
                     >{movie.title}</Link></li> 

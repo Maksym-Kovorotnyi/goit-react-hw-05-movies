@@ -1,9 +1,11 @@
 import { SearchBar } from "components/SearchBar/SearchBar"
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
     return (
         <>
             <SearchBar/>
         </>
     )
 }
+
+export default MoviesPage

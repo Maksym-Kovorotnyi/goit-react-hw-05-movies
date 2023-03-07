@@ -9,9 +9,8 @@ export const Layout = () => {
       <header >
         <Navigation />
       </header>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
+      <Outlet />
+
     </>
   );
 };

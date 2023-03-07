@@ -1,0 +1,31 @@
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    margin: 16px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.item::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #0077FF;
+    margin-right: 8px;
+}
+.item a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.item a:hover {
+    color: #0077FF;
+}

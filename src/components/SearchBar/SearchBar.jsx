@@ -1,6 +1,7 @@
 import { getByQuery } from "components/Service/API";
 import { useEffect, useState } from "react"
 import { Link, useLocation, useSearchParams } from "react-router-dom";
+import css from './SearchBar.module.css'
 
 export const SearchBar = () => {
     const location = useLocation()
@@ -42,13 +43,23 @@ export const SearchBar = () => {
    
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleInputValue} type="text" />
-                <button type="submit">Search</button>
+            <form
+                className={css.form}
+                onSubmit={handleSubmit}>
+                <input
+                    className={css.input}
+                    onChange={handleInputValue} type="text" />
+                <button
+                    className={css.formBtn}
+                    type="submit">Search</button>
             </form>
-            <ul>
+            <ul
+            className={css.list}
+            >
                 {movies.map(movie => {
-                    return <li key={movie.id}><Link
+                    return <li
+                        className={css.item}
+                        key={movie.id}><Link
                         to={`/movies/${movie.id.toString()}`}
                         state={{ from: location }}
                     >{movie.name}</Link></li>
