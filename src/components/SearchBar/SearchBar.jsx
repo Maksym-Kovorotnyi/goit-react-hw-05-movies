@@ -5,18 +5,18 @@ import css from './SearchBar.module.css'
 
 export const SearchBar = () => {
     const location = useLocation()
+    const [inputValue, setInputValue] = useState(null)
     const [submited, setSubmit] = useState(false);
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('query')
     
     useEffect(() => {
-        setSubmit(true)
-       
-    }, [])
+     setSubmit(true)
+ }, [])
 
     useEffect(() => {
-        if (submited === true) {
+        if (submited === true && query) {
             try {
                const getMoviesByQuery = async () => {
                 const searchedMovies = await getByQuery(query)
@@ -32,15 +32,18 @@ export const SearchBar = () => {
         }
     }, [query, submited])
     const handleInputValue = (e) => {
-       setSearchParams({ query: e.target.value })
+       setInputValue(e.target.value)
+       
        
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setSearchParams({ query: inputValue })
         setSubmit(true)
     }
-   console.log(movies);
+    console.log(submited);
+    console.log(inputValue);
     return (
         <>
             <form
