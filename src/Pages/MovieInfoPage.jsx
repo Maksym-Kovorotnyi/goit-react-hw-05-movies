@@ -3,7 +3,7 @@ import { Link, Outlet, useLocation} from "react-router-dom"
 
 const MovieInfoPage = () => {
     const location = useLocation()
-    
+    console.log(location.state.from);
     return (
         <>
             <Link
@@ -20,7 +20,7 @@ const MovieInfoPage = () => {
                     marginRight: '16px',
                     marginBottom: '16px',
   }}
-                to={location.state.from}
+                to={location.state.from ?? '/'}
             >Go back</Link>
             <MovieCard />
             <Link
@@ -55,6 +55,7 @@ const MovieInfoPage = () => {
   }}
                 to='reviews'
                 state={location.state ?? '/'}>Reviews</Link>
+            
           <Outlet />
             
         </>
