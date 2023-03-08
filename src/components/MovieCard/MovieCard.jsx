@@ -1,4 +1,4 @@
-import { getMovieFullInfo } from "components/Service/API"
+import { getMovieFullInfo } from "Service/API"
 import { useEffect, useState } from "react"
 import { Link, useLocation, useParams } from "react-router-dom"
 import css from './MovieCard.module.css'

@@ -1,4 +1,4 @@
-import { getTrending } from "components/Service/API"
+import { getTrending } from "Service/API"
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import css from './TrendingList.module.css'
